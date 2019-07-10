@@ -10,24 +10,17 @@ function createWindow() {
 		width: 800,
 		height: 600,
 		webPreferences: { 
-			nodeIntegration: false,
-			contextIsolation: false,
+			nodeIntegration: false,   // レンダ側でもNodejsのAPIを使用するか否か
+			contextIsolation: false,  // レンダとメインのglobal（window）を分離するか否か
 			preload: __dirname + "/preload.js",
 		}
 	});
 
-	mainWindow.webContents.loadURL("file://" + __dirname + "/index.html");
-	//mainWindow.loadFile("index.html");
+	//mainWindow.webContents.loadURL("file://" + __dirname + "/index.html");
+	mainWindow.loadFile("index.html");
 	// Dev tool を自動起動
 	mainWindow.webContents.openDevTools();
-
 	
-	/* for IPC test */
-	ipcMain.on('ping', (event, msg) => {
-		console.log(msg) // msg from web page
-		mainWindow.webContents.send('pong', 'hi') // send to web page
-	});
-	/* for IPC test */
 
 	mainWindow.on('closed', function () {
 		mainWindow = null;

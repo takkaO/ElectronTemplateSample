@@ -3,7 +3,7 @@
 // preload.js
 const electron = require('electron');
 // add global variables to your web page
-function init(){
+function initRendererNodejs(){
 	global.isElectron = true;
 	global.ipcRenderer = electron.ipcRenderer;
 	global.remote = electron.remote;
@@ -13,4 +13,4 @@ function init(){
 	//window.remote = electron.remote;
 }
 
-init();
+initRendererNodejs();
