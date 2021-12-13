@@ -5,17 +5,50 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "./node_modules/.bin/electron.cmd .",
-    "set_env": "npm install --vs2015 -g windows-build-tools",
-    "mybuild": "./node_modules/.bin/electron-rebuild",
-    "pack_win": "./node_modules/.bin/electron-packager . --overwrite  --asar --out=release NONAME --platform=win32 --arch=x64",
-    "pack_mac": "./node_modules/.bin/electron-packager . --overwrite --asar --out=release NONAME --platform=darwin --arch=x64"
+    "start": "electron.cmd .",
+    "rebuild": "electron-rebuild",
+    "release": "electron-builder"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "takkaO",
+  "license": "MIT",
   "devDependencies": {
-    "electron": "^11.1.1",
-    "electron-packager": "^15.2.0",
-    "electron-rebuild": "^2.3.4"
+    "electron": "^16.0.2",
+    "electron-builder": "^22.10.5",
+    "electron-rebuild": "^3.2.5"
+  },
+  "build": {
+    "appId": "com.electron._your_app_name_",
+    "productName": "_your_app_name_",
+    "directories": {
+      "output": "dist"
+    },
+    "asar": "true",
+    "files": [
+      "main.js",
+      "preload.js",
+      "index.html",
+      "index.js",
+      "css/*",
+      "src/*",
+      "package.json",
+      "package-lock.json"
+    ],
+    "extraFiles": [
+      
+    ],
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
   }
 }

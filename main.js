@@ -18,7 +18,7 @@ function createWindow() {
 			nodeIntegration: false,
 			// レンダとメインのglobal（window）を分離するか否か
 			contextIsolation: true,  
-			preload: path.resolve(__dirname + "/preload.js"),
+			preload: path.resolve(app.getAppPath() + "/preload.js"),
 		}
 	});
 

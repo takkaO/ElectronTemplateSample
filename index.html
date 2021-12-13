@@ -1,24 +1,27 @@
 <!DOCTYPE html>
-	<html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Electron App Template</title>
 
-	<head>
-		<meta charset="UTF-8">
-		<title> Electron App Template </title>
+    <!-- ユーザCSSの読み込み -->
+    <link rel="stylesheet" type="text/css" href="./css/index.css" />
 
-		<!-- ユーザCSSの読み込み -->
-		<link rel="stylesheet" type="text/css" href="./css/index.css">
-		
-		<!-- コンテンツ・セキュリティ・ポリシーを設定 -->
-		<meta http-equiv="Content-Security-Policy" content="default-src 'self';
-			img-src 'self' data: image/svg+xml;">
-	</head>
+    <!-- コンテンツ・セキュリティ・ポリシーを設定 -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+	
+  </head>
 
-	<body>
-		<div class="test_title">
-			<h2> Display Application </h2>
-		</div>
+  <body>
+    <div class="test_title">
+      <h2>Display Application</h2>
+    </div>
 
-		<script defer src="index.js"></script>
-	</body>
+    We are using Node.js <span id="node-version"></span>, Chromium
+    <span id="chrome-version"></span>, and Electron
+    <span id="electron-version"></span>.
 
-	</html>
+    <script defer src="index.js"></script>
+  </body>
+</html>
